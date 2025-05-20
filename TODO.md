@@ -1,4 +1,6 @@
 # TODO List for future visualization and functionality
+=> Since the visualization is only dependent on a valid .json (.json validity in this particular project is very broad), one can easily re-use this "overview management" for different purposes.
+
 
 ## Visualization and additional functionality
 - Add coloring to different types and file extensions as leafs/endpoints (small task)
