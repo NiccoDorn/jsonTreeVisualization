@@ -4,6 +4,7 @@ For a first quick impression, have a look at the generated github pages link.
 <div align="center">
     🔗 <a href="https://niccodorn.github.io/jsonTreeVisualization/" target="_blank">Live Demo at: https://niccodorn.github.io/jsonTreeVisualization/</a> &nbsp;&nbsp;
 </div>
+<p></p>
 
 Idea: If you're working with a big project and want to view generated structure of files with a specific substring in a specific project or any other generated json structure, you can do that by either going through the json or having a nice collapsable tree of that structure where you can select what structure you leave collapsed and which one you want to view. As an example, I include a cursed but valid .json as well as the Barometric files in `baro_hierarchy.json` hierarchy (notice: no matching for altitude!) 
 from the root project ardupilot, which can be found here: https://github.com/ArduPilot/ardupilot .
