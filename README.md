@@ -1,9 +1,10 @@
 # jsonTreeVisualization
 This is a simple project that aims at visualizing arbitrary json structures as a collapsable tree in HTML/CSS/JS.
-Idea: If you're working with a big project and want to view structure of files with a specific substring in them or any
-other json structure, you can do that by either going through the json or having a nice collapsable tree of that structure
+Idea: If you're working with a big project and want to view generated structure of files with a specific substring in a specific project or any
+other generated json structure, you can do that by either going through the json or having a nice collapsable tree of that structure
 where you can select what structure you leave collapsed and which one you want to view. As an example, I include a cursed but valid .json
-as well as the Barometric baro_hierarchy.json hierarchy (notice: no matching for altitude!) from the root project ardupilot, which can be found here: https://github.com/ArduPilot/ardupilot
+as well as the Barometric files in baro_hierarchy.json hierarchy (notice: no matching for altitude!) 
+from the root project ardupilot, which can be found here: https://github.com/ArduPilot/ardupilot .
 I might later upload how I generated this .json. But in itself, it is not the main focus of this repo.
 If you still wanna see it, contact me or open an issue (if that works).
 
