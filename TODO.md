@@ -10,8 +10,10 @@
 ## Merging  with bigger analysis tool
 - Testing and give circle inner info like "tested"/"vetted"/"reviewed"
 - For (sub-)domain checking and validation (Automated Ownership Detection): "Scanned" & "Result"
-- SOme scores about attack vectors performed inspired by structure pf CVE/CWE/MITRE
+- Some scores about attack vectors that have been performed - inspired by structure of CVE/CWE/MITRE database
 - Azure Cloud Mapping and traversal overview information (Tenants/Subscriptions/Ressources like Workspaces or Azure Keyvaults)
+    - Azure/Azure Cloud already provides its own tree visualization of some system's or cluster's network hierarchy
+    - however, it can not be easily annotated with custom status like "security tested" or similar (afaik)
 - Kubernetes Cluster Mapping within Managed Azure Cloud Environment / Azure AD and on premise systems
 
 ## Transformations into other structures: From tree to graph
