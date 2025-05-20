@@ -265,9 +265,9 @@ This isn't unrealistic at all. In fact, it's one of the most difficult attack ve
         - 🎭 "The Trusted Liar"	Has always had a hidden agenda, but built trust through charm or competence.
 
 - Your scenario covers at least three of these. And all of them tend to:
-    - Avoid malware
-    - Focus on leverage
-    - Use their existing access and reputation to hide in plain sight
+    - ÖAvoid malware
+    - ÖFocus on leverage
+    - ÖUse their existing access and reputation to hide in plain sight
 
 - 💡 So what can you do?
 
