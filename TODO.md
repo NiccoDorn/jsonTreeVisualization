@@ -1,24 +1,26 @@
 # TODO List for future visualization and functionality
-=> Since the visualization is only dependent on a valid .json (.json validity in this particular project is very broad), one can easily re-use this "overview management" for different purposes.
+> Since the visualization is only dependent on a valid .json (.json validity in this particular project is very broad), one can easily re-use this "overview management" for different purposes.
 
+## Making this a github hosted website
+- [ ] Let the webserver script run here within github hosted environment
 
 ## Visualization and additional functionality
-- Add coloring to different types and file extensions as leafs/endpoints (small task)
-- add buttons for "expand all" and "collapse all" for easy use + search functionality, which marks the searched and found node
-- include .json generation routine based on task, which will be a python script most likely
-- include in development pipeline for quick overview as quick launch extensions or similar
-- VSCode right-click functionality for selected directory for a quick overview
+- [ ] Add coloring to different types and file extensions as leafs/endpoints (small task)
+- [ ] add buttons for "expand all" and "collapse all" for easy use + search functionality, which marks the searched and found node
+- [ ] include .json generation routine based on task, which will be a python script most likely
+- [ ] include in development pipeline for quick overview as quick launch extensions or similar
+- [ ] VSCode right-click functionality for selected directory for a quick overview
 
 ## Merging  with bigger analysis tool
-- Testing and give circle inner info like "tested"/"vetted"/"reviewed"
-- For (sub-)domain checking and validation (Automated Ownership Detection): "Scanned" & "Result"
-- Some scores about attack vectors that have been performed - inspired by structure of CVE/CWE/MITRE database
-- Azure Cloud Mapping and traversal overview information (Tenants/Subscriptions/Ressources like Workspaces or Azure Keyvaults)
-    - Azure/Azure Cloud already provides its own tree visualization of some system's or cluster's network hierarchy
-    - however, it can not be easily annotated with custom status like "security tested" or similar (afaik)
-- Kubernetes Cluster Mapping within Managed Azure Cloud Environment / Azure AD and on premise systems
+- [ ] Testing and give circle inner info like "tested"/"vetted"/"reviewed"
+- [ ] For (sub-)domain checking and validation (Automated Ownership Detection): "Scanned" & "Result"
+- [ ] Some scores about attack vectors that have been performed - inspired by structure of CVE/CWE/MITRE database
+- [ ] Azure Cloud Mapping and traversal overview information (Tenants/Subscriptions/Ressources like Workspaces or Azure Keyvaults)
+    - [ ] Azure/Azure Cloud already provides its own tree visualization of some system's or cluster's network hierarchy
+    - [ ] However, it can not be easily annotated with custom status like "security tested" or similar (afaik)
+- [ ] Kubernetes Cluster Mapping within Managed Azure Cloud Environment / Azure AD and on premise systems
 
 ## Transformations into other structures: From tree to graph
-- endpoint checking for multiple occurences/usages in e.g. imports and process pipeline
-- basically PDG of some software stack like ArduPilot: use existing research to leverage analysis (Web Security/ Systems Security)
-- Flow of function calls of the same function throughout different files for visualization
+- [ ] endpoint checking for multiple occurences/usages in e.g. imports and process pipeline
+- [ ] basically PDG of some software stack like ArduPilot: use existing research to leverage analysis (Web Security/ Systems Security)
+- [ ] Flow of function calls of the same function throughout different files for visualization

@@ -59,7 +59,7 @@ function initializeVisualization(rawJson) {
     return newNode;
   }
 
-  let rootName = "Root";
+  let rootName = "root";
   let rootData = rawJson;
 
   if (!Array.isArray(rawJson) && typeof rawJson === 'object') {
@@ -90,7 +90,7 @@ function initializeVisualization(rawJson) {
         height = +svg.attr("height"),
         g = svg.append("g").attr("transform", "translate(150,0)");
 
-  const tree = d3.tree().size([height, 1200]);
+  const tree = d3.tree().size([height, width]);
   const duration = 400;
 
   let i = 0;
