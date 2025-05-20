@@ -1,5 +1,5 @@
 // main
-fetch('nasty.json')
+fetch('baro_hierarchy.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Netzwerkantwort war nicht ok');
