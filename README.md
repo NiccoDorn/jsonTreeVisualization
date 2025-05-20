@@ -15,7 +15,7 @@ If you still wanna see it, contact me or open an issue (if that works).
 - if you're on Windows it should start the server without difficulties but with a Browser Warning because the used TLS certificate is self-signed and not from a trusted CA.
 - on Linux you might need to paste the presented URL (in terminal) manually into a browser of your choice.
 - some browsers, network and waf settings that you may have setup some time before, might conflict with a self-signed server start-up but should be unlikely though
-- we do not talk about some half-eaten fruits here! *yuck* 
+- we do not talk about some partially-eaten fruits here! *yuck*
 
 ## HTTP/HTTPS Webserver
 - `startWebVizHTTP(S).py` scripts to fire up a simple webserver on localhost
