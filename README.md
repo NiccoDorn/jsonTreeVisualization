@@ -19,7 +19,7 @@ If you still wanna see it, contact me or open an issue (if that works).
     
 ## HTML Skeleton:
 - `index.html`,
-  - invokes the jsonViz.js script, which then fetches some json (can be a different one)
+  - invokes the `jsonViz.js` script, which then fetches some json (can be a different one)
   - invokes a d3.v7.min.js as the `d3_v7.min.js` file, which I copied to local env (see copyright notice) to stay strictly in localhost communication mode
   - invokes a `styles.css` which can be expanded depending on what DOM elements are used in the static `index.html`
 
