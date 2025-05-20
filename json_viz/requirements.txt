@@ -1,0 +1,14 @@
+Python 3.13 - All libraries should be there with the default installation
+Used modules: 
+socketserver
+webbrowser
+os
+sys
+platform
+argparse 
+urllib
+threading
+ssl
+http.server
+
+Installing missing ones on your own. For more info, visit: https://pypi.org

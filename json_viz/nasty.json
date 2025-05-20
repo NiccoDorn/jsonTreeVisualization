@@ -1,0 +1,9 @@
+{
+  "crazy_array": [1, 2, "abc", 4.8, null, {"lmao": [4.2, {"wtf": 42}, {"ftw": 1337}, {}]}],
+  "dict": {
+    "misc_array": ["1", {"yo": "ho"}, 2, 4.8, null, null, {"lel": "1"}],
+    "float": 4.8,
+    "string": "Hello, world!"
+  },
+  "boolean": true
+}
