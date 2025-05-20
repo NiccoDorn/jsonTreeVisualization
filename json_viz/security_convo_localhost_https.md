@@ -1,4 +1,5 @@
-### Prompt: Ok, so I have a Security-Question regarding Localhost HTTP/S: When is it actually important to have HTTPS on localhost rather than HTTP? Take this script for example that starts up a webserver for an index.html which uses styles.css file and calls jsonViz.js and d3_v7.js files for visualizing something: 
+### Prompt: 
+Ok, so I have a Security-Question regarding Localhost HTTP/S: When is it actually important to have HTTPS on localhost rather than HTTP? Take this script for example that starts up a webserver for an index.html which uses styles.css file and calls jsonViz.js and d3_v7.js files for visualizing something: 
 
 
 ### ChatGPT:
