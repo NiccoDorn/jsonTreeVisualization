@@ -2,7 +2,7 @@
 > Since the visualization is only dependent on a valid .json (.json validity in this particular project is very broad), one can easily re-use this "overview management" for different purposes.
 
 ## Making this a github hosted website
-- [ ] Let the webserver script run here within github hosted environment
+- [x] Let the webserver script run here within github hosted environment
 
 ## Visualization and additional functionality
 - [ ] Add coloring to different types and file extensions as leafs/endpoints (small task)
