@@ -119,11 +119,13 @@ Great question — this gets into the core of how network traffic actually works
     - A proxy that records traffic (e.g. mitmproxy)
 
 But for typical cases, localhost traffic is not sniffable over Wi-Fi or Ethernet, because it never leaves your machine.
+
 ✅ Summary
-Scenario	                    Can others sniff traffic?        Use HTTPS?
-localhost only (127.0.0.1)	    ❌ No (isolated)	                Optional, but good for feature testing
-0.0.0.0 or LAN IP	            ✅ Yes (LAN-visible)	            ✅ Yes! Absolutely
-Publicly exposed (e.g. ngrok)	✅ Yes (Internet)	            ✅ Mandatory
+
+Scenario | Can others sniff traffic? | Use HTTPS?
+localhost only (127.0.0.1) | ❌ No (isolated) | Optional, but good for feature testing
+0.0.0.0 or LAN IP | ✅ Yes (LAN-visible)	| ✅ Yes! Absolutely
+Publicly exposed (e.g. ngrok) | ✅ Yes (Internet) | ✅ Mandatory
 
 - 🔐 Bottom Line:
     - No, Wireshark can’t sniff localhost traffic in normal setups — it's isolated in the OS loopback interface.
