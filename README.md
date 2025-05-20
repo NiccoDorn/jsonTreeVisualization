@@ -12,7 +12,7 @@ If you still wanna see it, contact me or open an issue (if that works).
 
 ## Webserver Start & Stop
 - start: start terminal in root directory, `cd` into `webserver` and execute `python startWebVizHTTPS.py` in Terminal
-- shutdown: simply press [Ctrl+C] in the terminal where you started the python script from
+- shutdown: simply press **[Ctrl+C]** in the terminal where you started the python script from
 - if you're on Windows it should start the server without difficulties but with a Browser Warning because the used TLS certificate is self-signed and not from a trusted CA.
 - on Linux you might need to paste the presented URL (in terminal) manually into a browser of your choice.
 - some browsers, network and waf settings that you may have setup some time before, might conflict with a self-signed server start-up but should be unlikely though
@@ -35,7 +35,7 @@ If you still wanna see it, contact me or open an issue (if that works).
   - fetches the json file, here you can define, which .json file to visualize, at the moment it is `nasty.json`
   - recursively builds a tree from provided json structure, probably not exhaustive but this is as far as I'll do it
   - renders a(n) expandable/collapsable tree with html/css and .js generated css rules
-- in (firefox) browser you can press [Ctrl+P] to attempt Print to PDF Browser Function, where you can save the current expanded-collapsed tree to a .pdf file, make use of different formats to be able to fully visualize bigger trees.
+- in (firefox) browser you can press **[Ctrl+P]** to attempt Print to PDF Browser Function, where you can save the current expanded-collapsed tree to a .pdf file, make use of different formats to be able to fully visualize bigger trees.
 
 ## Security Considerations
 - if you're somehow including this into a bigger project of yours:
