@@ -2,14 +2,20 @@
 This is a simple project that aims at visualizing arbitrary json structures as a collapsable tree in HTML/CSS/JS.
 Idea: If you're working with a big project and want to view generated structure of files with a specific substring in a specific project or any
 other generated json structure, you can do that by either going through the json or having a nice collapsable tree of that structure
-where you can select what structure you leave collapsed and which one you want to view. As an example, I include a cursed but valid .json
-as well as the Barometric files in `baro_hierarchy.json` hierarchy (notice: no matching for altitude!) 
+where you can select what structure you leave collapsed and which one you want to view. As an example, I include a cursed but valid .json as well as the Barometric files in `baro_hierarchy.json` hierarchy (notice: no matching for altitude!) 
 from the root project ardupilot, which can be found here: https://github.com/ArduPilot/ardupilot .
 I might later upload how I generated this .json. But in itself, it is not the main focus of this repo.
 If you still wanna see it, contact me or open an issue (if that works).
 
-## Requirements File for the Python Setup Scripts
+## Setup Requirements File for the Python Setup Scripts
 - Well... install the packages yourself if you desparately want to use old Python versions.
+
+## Webserver Start
+- simplest: start terminal in root directory, `cd` into `webserver` and execute `python startWebVizHTTPS.py` in Terminal
+- if you're on Windows it should start the server without difficulties but with a Browser Warning because the used TLS certificate is self-signed and not from a trusted CA.
+- on Linux you might need to paste the presented URL (in terminal) manually into a browser of your choice.
+- some browsers, network and waf settings that you may have setup some time before, might conflict with a self-signed server start-up but should be unlikely though
+- we do not talk about some half-eaten fruits here! *yuck* 
 
 ## HTTP/HTTPS Webserver
 - `startWebVizHTTP(S).py` scripts to fire up a simple webserver on localhost
