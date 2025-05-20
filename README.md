@@ -25,7 +25,7 @@ If you still wanna see it, contact me or open an issue (if that works).
 
 ## Visualization:
 - `jsonViz.js`:
-  - fetches the json file, here you can define, which .json file you to visualize, at the moment it is "nasty.json"
+  - fetches the json file, here you can define, which .json file to visualize, at the moment it is "nasty.json"
   - recursively builds a tree from provided json structure, probably not exhaustive but this is as far as I'll do it
   - renders a tree with html/css and .js generated css rules
 
