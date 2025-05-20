@@ -9,14 +9,14 @@ I might later upload how I generated this .json. But in itself, it is not the ma
 If you still wanna see it, contact me or open an issue (if that works).
 
 ## Requirements File for the Python Setup Scripts
-- Well... install the packages yourself if you desparately want to use old Python versions
+- Well... install the packages yourself if you desparately want to use old Python versions.
 
 ## HTTP/HTTPS Webserver
 - `startWebVizHTTP(S).py` scripts to fire up a simple webserver on localhost
   - the HTTPS variant makes use of self-signed certs (Santa Corp), of which at least the CN needs to be provided.
   - see `cert.pem` and `key.pem`
   - see also a discussion with ChatGPT, why HTTPS Localhost may be relevant depending on the environment `security_convo_localhost_https.md`
-  - 
+    
 ## HTML Skeleton:
 - `index.html`,
   - invokes the jsonViz.js script, which then fetches some json (can be a different one)
