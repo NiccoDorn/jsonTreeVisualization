@@ -2,7 +2,7 @@
 > This is a simple project that aims at visualizing arbitrary json structures as a collapsable tree in HTML/CSS/JS.
 For a first quick impression, have a look at the generated github pages link. 
 <div align="center">
-    🌐 <a href="https://niccodorn.github.io/jsonTreeVisualization/" target="_blank">Live Demo at: https://niccodorn.github.io/jsonTreeVisualization/</a> &nbsp;&nbsp;
+    🌐 <a href="https://niccodorn.github.io/jsonTreeVisualization/">Live Demo at: https://niccodorn.github.io/jsonTreeVisualization/</a> &nbsp;&nbsp;
 </div>
 <p></p>
 
