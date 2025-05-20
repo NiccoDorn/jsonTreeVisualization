@@ -1,5 +1,5 @@
 // main
-fetch('some_hierarchy.json')
+fetch('data/baro_hierarchy.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('Netzwerkantwort war nicht ok');
@@ -15,43 +15,47 @@ fetch('some_hierarchy.json')
 
 // darstellung 
 function initializeVisualization(rawJson) {
-  function buildTree(name, node) {
+
+  function buildTree(name, node, context = "", counters = {}) {
+    const newNode = { name };
+    if (node === null) { return newNode; }
+    if (typeof node === 'number' || typeof node === 'boolean' || typeof node === 'string') {
+      return { name: String(node) };
+    }
+
     const children = [];
 
     if (Array.isArray(node)) {
       for (let i = 0; i < node.length; i++) {
-        let itemName;
-        
-        // Handle different data types properly
-        if (node[i] === null) {
-          itemName = "null";
-        } else if (typeof node[i] === 'number') {
-          itemName = node[i].toString(); // Convert numbers to string
-        } else if (typeof node[i] === 'string') {
-          itemName = node[i];
-        } else if (typeof node[i] === 'object' && node[i].name) {
-          itemName = node[i].name;
-        } else {
-          itemName = `Item ${i}`; // Fallback for other types
+        const item = node[i];
+        if (item === null) {
+          children.push({ name: "null" });
+        } else if (typeof item === 'number' || typeof item === 'boolean') {
+          children.push({ name: String(item) });
+        } else if (typeof item === 'string') {
+          children.push({ name: item });
+        } else if (typeof item === 'object') {
+          if (!counters[context]) counters[context] = 0;
+          counters[context] += 1;
+          const itemName = `${context} Object ${counters[context]}`;
+          children.push(buildTree(itemName, item, itemName, counters));
         }
-        
-        children.push(buildTree(itemName, node[i]));
       }
     } 
-    else if (node !== null && typeof node === 'object') {
+
+    else if (typeof node === 'object') {
       for (const key in node) {
         if (key === "path") continue;
-        children.push(buildTree(key, node[key]));
+        const value = node[key];
+        if (value === null) { children.push({ name: `${key}: null` }); } 
+        else if (typeof value === 'number' || typeof value === 'boolean' || typeof value === 'string') {
+          children.push({ name: `${key}: ${value}` });
+        } else { children.push(buildTree(key, value, key, counters)); }
       }
     }
-    
-    const newNode = { name };
-    if (children.length > 0) {
-      newNode.children = children;
-    }
-    if (node && typeof node === 'object' && !Array.isArray(node) && node.path) {
-      newNode.path = node.path;
-    }
+
+    if (children.length > 0) { newNode.children = children; }
+    if (typeof node === 'object' && !Array.isArray(node) && node.path) { newNode.path = node.path; }
     return newNode;
   }
 

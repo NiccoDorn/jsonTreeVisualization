@@ -11,8 +11,8 @@ import subprocess
 
 PORT = 4443
 DELAY = 1.0                 # kp wie lang mange systeme brauchen
-CERT_FILE = "cert.pem"      # selbst signiert - keine Kopfschmerzen mit Windows, einfach schon da
-KEY_FILE = "key.pem"        # ansonsten halt wsl oder git bash und dann erstellen
+CERT_FILE = "webserver/cert.pem"      # selbst signiert - keine Kopfschmerzen mit Windows, einfach schon da
+KEY_FILE = "webserver/key.pem"        # ansonsten halt wsl oder git bash und dann erstellen
 
 def openBrowserInLinux(url):
     try:
@@ -68,5 +68,5 @@ if __name__ == "__main__":
     parser.add_argument("--no-browser", action="store_true", help="Browser nicht automatisch öffnen")
     parser.add_argument("-f", "--file", type=str, default="index.html", help="Verwendete HTML-Datei (Standard: index.html)")
     args = parser.parse_args()
-
+    os.chdir(os.path.dirname(os.path.abspath(__file__)) + "/..")
     initHTTPSServer(args.port, not args.no_browser, args.file)

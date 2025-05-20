@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import http.server
 import socketserver
 import webbrowser
@@ -33,4 +34,5 @@ if __name__ == "__main__":
     parser.add_argument("--no-browser", action="store_true", help="Browser nicht automatisch öffnen")
     parser.add_argument("-f", "--file", type=str, default="index.html", help="Verwendete HTML-Datei (Standard: index.html)")
     args = parser.parse_args()
+    os.chdir(os.path.dirname(os.path.abspath(__file__)) + "/..")
     initServer(args.port, not args.no_browser, args.file)
