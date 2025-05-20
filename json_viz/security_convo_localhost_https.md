@@ -99,13 +99,12 @@ Great question — this gets into the core of how network traffic actually works
 - 🌐 Binding to 0.0.0.0 or a LAN IP
     - If you bind your server like this: python3 -m http.server 3000 --bind 0.0.0.0
     - or in code: http.server.HTTPServer(("0.0.0.0", 3000), Handler)
-
-- Then the server listens on all network interfaces, including:
+    - Then the server listens on all network interfaces, including:
     - Your local IP (e.g., 192.168.0.23)
     - Possibly even Wi-Fi, Ethernet, or Bluetooth network adapters
+    - Now, others on your network can connect to it — and yes, sniff your traffic if it's unencrypted.
 
-- Now, others on your network can connect to it — and yes, sniff your traffic if it's unencrypted.
-    - 🛑 Can Wireshark sniff localhost traffic?
+- 🛑 Can Wireshark sniff localhost traffic?
     - ⚠️ Not normally.
 
 - No — Wireshark cannot sniff localhost traffic on most OSes:
@@ -121,10 +120,11 @@ Great question — this gets into the core of how network traffic actually works
 
 But for typical cases, localhost traffic is not sniffable over Wi-Fi or Ethernet, because it never leaves your machine.
 ✅ Summary
-Scenario	Can others sniff traffic?	Use HTTPS?
-localhost only (127.0.0.1)	❌ No (isolated)	Optional, but good for feature testing
-0.0.0.0 or LAN IP	✅ Yes (LAN-visible)	✅ Yes! Absolutely
-Publicly exposed (e.g. ngrok)	✅ Yes (Internet)	✅ Mandatory
+Scenario	                    Can others sniff traffic?        Use HTTPS?
+localhost only (127.0.0.1)	    ❌ No (isolated)	                Optional, but good for feature testing
+0.0.0.0 or LAN IP	            ✅ Yes (LAN-visible)	            ✅ Yes! Absolutely
+Publicly exposed (e.g. ngrok)	✅ Yes (Internet)	            ✅ Mandatory
+
 - 🔐 Bottom Line:
     - No, Wireshark can’t sniff localhost traffic in normal setups — it's isolated in the OS loopback interface.
     - But if you bind your dev server to something other than localhost, you are broadcasting unencrypted data onto the local network — and that can absolutely be sniffed.
