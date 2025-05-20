@@ -35,3 +35,11 @@ If you still wanna see it, contact me or open an issue (if that works).
   - recursively builds a tree from provided json structure, probably not exhaustive but this is as far as I'll do it
   - renders a(n) expandable/collapsable tree with html/css and .js generated css rules
 
+## Security Considerations
+- if you're somehow including this into a bigger project of yours:
+- consider either re-creating new `cert.pem` and `key.pem` from time to time
+- if you want this as a micro-service running on some "real server" (docker container - within a kube pod) (not localhost):
+  - obviously use CA certs, especially when you're doing more advanced mapping / visualization scenarios
+  - adjust to your vetted communication processes in your system(s)
+  - filesystem hiararchies, project config hierarchies etc. may contain sensible information and should not be leaked
+- have a read into `security_convo_localhost_https.md`, it might tell you something you do not already know
