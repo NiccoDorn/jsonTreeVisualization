@@ -1,17 +1,42 @@
-// main
-fetch('data/baro_hierarchy.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Netzwerkantwort war nicht ok');
-    }
-    return response.json();
-  })
-  .then(rawJson => {
-    initializeVisualization(rawJson);
-  })
-  .catch(error => {
-    console.error('Fehler beim Laden der JSON-Datei:', error);
-  });
+// main - jetzt mit input über klassische Event Listener
+document.getElementById("loadBtn").addEventListener("click", () => {
+  const input = document.getElementById("jsonInput").value;
+  let parsedJson;
+  try {
+    parsedJson = JSON.parse(input);
+  } catch (err) {
+    alert("Invalid JSON:\n" + err.message);
+    return;
+  }
+
+  d3.select("svg").selectAll("*").remove();
+  initializeVisualization(parsedJson);
+  document.getElementById('inputContainer').style.display = 'none';
+  document.getElementById('resetBtn').style.display = 'inline-block';
+  document.querySelectorAll('.exportBtn').forEach(btn => btn.style.display = 'inline-block');
+});
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  d3.select("svg").selectAll("*").remove();
+  document.getElementById('inputContainer').style.display = 'block';
+  document.getElementById('resetBtn').style.display = 'none';
+  document.querySelectorAll('.exportBtn').forEach(btn => btn.style.display = 'none');
+  document.getElementById("jsonInput").value = ""; // sicherstellen, dass nix zwischengespeichert wird
+  window.scrollTo(0, 0); // zurück nach oben
+});
+
+document.getElementById("printBtnPDF").addEventListener("click", () => {
+  window.print(); // geht's vielleicht ganz lazy über css media query? JAAA!
+});
+
+document.getElementById("printBtnSVG").addEventListener("click", () => {
+  return; // TODO: Implement me.
+});
+
+document.getElementById("printBtnPNG").addEventListener("click", () => {
+  return; // TODO: Implement me.
+});
+
 
 // darstellung 
 function initializeVisualization(rawJson) {

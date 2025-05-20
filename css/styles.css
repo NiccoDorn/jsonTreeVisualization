@@ -1,19 +1,134 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
+  padding: 1rem;
+  background-color: #f7f9fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
 }
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+#inputContainer {
+  text-align: center;
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 90%;
+  max-width: 900px;
+}
+
+#jsonInput {
+  width: 100%;
+  height: 200px;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  box-sizing: border-box;
+  background-color: #fefefe;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#buttonContainer {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#resetBtn,
+#exportBtn {
+  display: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+#resetBtn:hover,
+#exportBtn:hover {
+  background-color: #2980b9;
+}
+
+/* TODO: NOT YET IMPLEMENTED, thus marked with red */
+#printBtnSVG,
+#printBtnPNG {
+  background-color: #e74c3c;
+}
+
+#printBtnSVG:hover,
+#printBtnPNG:hover {
+  background-color: #c0392b;
+}
+
+svg {
+  background-color: white;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
 .node circle {
   fill: #6baed6;
   stroke: #2171b5;
   stroke-width: 2px;
 }
+
 .node text {
   font: 12px sans-serif;
   font-weight: bold !important;
   user-select: none;
 }
+
 .link {
   fill: none;
-  stroke: #ccc;
+  stroke: #bbb;
   stroke-width: 1.5px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printArea, #printArea * {
+    visibility: visible;
+  }
+  #printArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
 }
