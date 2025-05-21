@@ -19,7 +19,7 @@
 
 ## Extension / VSCode integrated [Optional]
 - [ ] include in development pipeline for quick overview as quick launch extensions or similar
-- [ ] VSCode right-click functionality for selected directory for a quick overview
+- [ ] VSCode right-click functionality for selected directory for a quick overview using a .json generator script for that selected directory
 
 ## Merging  with bigger analysis tool [Optional]
 - [ ] For (sub-)domain checking and validation (Automated Ownership Detection): "Scanned" & "Result"
