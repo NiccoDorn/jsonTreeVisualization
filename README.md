@@ -6,10 +6,7 @@ For a first quick impression, have a look at the generated github pages link.
 </div>
 <p></p>
 
-Idea: If you're working with a big project and want to view generated structure of files with a specific substring in a specific project or any other generated json structure, you can do that by either going through the json or having a nice collapsable tree of that structure where you can select what structure you leave collapsed and which one you want to view. As an example, I include a cursed but valid .json as well as the Barometric files in `baro_hierarchy.json` hierarchy (notice: no matching for altitude!) 
-from the root project ardupilot, which can be found here: https://github.com/ArduPilot/ardupilot .
-I might later upload how I generated this .json. But in itself, it is not the main focus of this repo.
-If you still wanna see it, contact me or open an issue (if that works).
+Idea: If you're working with a big project and want to view generated structure of files with a specific substring in a specific project or any other generated json structure, you can do that by either going through the json or having a nice collapsable tree of that structure where you can select what structure you leave collapsed and which one you want to view. As an example, I include a cursed but valid `nasty.json` file as well as the Barometric files structure in `baro_hierarchy.json` hierarchy (notice: no matching for altitude!) from the root project ardupilot, which can be found here: https://github.com/ArduPilot/ardupilot . I might later upload how I generated this .json. But in itself, it is not the main focus of this repo. If you still wanna see it, contact me or open an issue (if that works).
 
 ## Setup Requirements File for the Python Setup Scripts
 - Well... install the packages yourself if you desparately want to use old Python versions.
@@ -36,7 +33,7 @@ If you still wanna see it, contact me or open an issue (if that works).
 
 ## Visualization:
 - `jsonViz.js`:
-  - fetches the json file, here you can define, which .json file to visualize, at the moment it is `nasty.json`
+  - gets the json file as input, here you can define, which .json file to visualize
   - recursively builds a tree from provided json structure, probably not exhaustive but this is as far as I'll do it
   - renders a(n) expandable/collapsable tree with html/css and .js generated css rules
 - in (firefox) browser you can press **[Ctrl+P]** to attempt Print to PDF Browser Function, where you can save the current expanded-collapsed tree to a .pdf file, make use of different formats to be able to fully visualize bigger trees.
