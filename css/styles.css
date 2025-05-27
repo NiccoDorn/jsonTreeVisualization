@@ -108,7 +108,6 @@ svg {
 
 .node text {
   font: 12px sans-serif;
-  font-weight: bold !important;
   user-select: none;
 }
 
