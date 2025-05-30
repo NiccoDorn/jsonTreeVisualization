@@ -31,12 +31,18 @@ Idea: If you're working with a big project and want to view generated structure 
   - invokes a d3.v7.min.js as the `d3_v7.min.js` file, which I copied to local env (see copyright notice) to stay strictly in localhost communication mode
   - invokes a `styles.css` which can be expanded depending on what DOM elements are used in the static `index.html`
 
+## Getting Data:
+- see `tree_script/jsonTree.sh`, you probably first need to set the right permissions for this script with: `chmod +x jsonTree.sh`, then just execute it with `./jsonTree.sh .` as an example
+- see `tree_script/jsonTree.ps1`, a powershell script that generates a nested structure which is easily parsed and visualized later, this one you execute with `.\jsonTree.ps1 .` as an example
+- both scripts require of you to provide a valid path from which to generate the json. Quick use: just type `.` to get a jsonTree of the directory you're currently executing the script from, provide `..` to get a json of the path above your current directory location
+- see `example_project.json`, notice that it's compressed format
+
 ## Visualization:
 - `jsonViz.js`:
   - gets the json file as input, here you can define, which .json file to visualize
   - recursively builds a tree from provided json structure, probably not exhaustive but this is as far as I'll do it
   - renders a(n) expandable/collapsable tree with html/css and .js generated css rules
-- in (firefox) browser you can press **[Ctrl+P]** to attempt Print to PDF Browser Function, where you can save the current expanded-collapsed tree to a .pdf file, make use of different formats to be able to fully visualize bigger trees.
+- in (firefox) browser you can press **[Ctrl+P]** to attempt Print to PDF Browser Function, where you can save the current expanded-collapsed tree to a .pdf file, make use of different formats to be able to fully visualize bigger trees
 
 ## Security Considerations
 - if you're somehow including this into a bigger project of yours:

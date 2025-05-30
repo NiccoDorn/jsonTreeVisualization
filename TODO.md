@@ -13,7 +13,7 @@
 - [ ] Add coloring to different types and file extensions as leafs/endpoints (small task)
 - [ ] add buttons for "expand all" and "collapse all" for easy use + search functionality, which marks the searched and found node
 - [ ] Testing and give circle inner info like "tested"/"vetted"/"reviewed"
-- [x] include .json generation script based on specific task (i.e. ardupilot), which will be a python script most likely
+- [x] include Linux/Windows .json generation script for directory json generation or implement your custom json generator for whatever
 - [ ] For massive amounts of same-level item, predefine minimal vertical distance between branches
 - [x] Test with an exhaustive set of different but valid .json structures
 
