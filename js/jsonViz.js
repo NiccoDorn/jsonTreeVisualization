@@ -41,9 +41,13 @@ document.getElementById("printBtnPNG").addEventListener("click", () => {
 // darstellung 
 function initializeVisualization(rawJson) {
 
-  function buildTree(name, node, context = "", counters = {}) {
+  function buildTree(name, node) {
     const newNode = { name };
-    if (node === null) { return newNode; }
+
+    if (node === null) {
+      return newNode;
+    }
+    
     if (typeof node === 'number' || typeof node === 'boolean' || typeof node === 'string') {
       return { name: String(node) };
     }
@@ -51,38 +55,38 @@ function initializeVisualization(rawJson) {
     const children = [];
 
     if (Array.isArray(node)) {
-      for (let i = 0; i < node.length; i++) {
-        const item = node[i];
+      for (const item of node) {
         if (item === null) {
           children.push({ name: "null" });
-        } else if (typeof item === 'number' || typeof item === 'boolean') {
-          children.push({ name: String(item) });
-        } else if (typeof item === 'string') {
+        } else if (typeof item === 'number' || typeof item === 'boolean' || typeof item === 'string') {
           children.push({ name: item });
         } else if (typeof item === 'object') {
-          if (!counters[context]) counters[context] = 0;
-          counters[context] += 1;
-          const itemName = `${context} Object ${counters[context]}`;
-          children.push(buildTree(itemName, item, itemName, counters));
+          children.push(buildTree(item.name || "map", item.children || item));
         }
       }
-    } 
-
-    else if (typeof node === 'object') {
+    } else if (typeof node === 'object') {
       for (const key in node) {
         if (key === "path") continue;
+
         const value = node[key];
-        if (value === null) { children.push({ name: `${key}: null` }); } 
-        else if (typeof value === 'number' || typeof value === 'boolean' || typeof value === 'string') {
+
+        if (value === null) {
+          children.push({ name: `${key}: null` });
+        } else if (typeof value === 'number' || typeof value === 'boolean' || typeof value === 'string') {
           children.push({ name: `${key}: ${value}` });
-        } else { children.push(buildTree(key, value, key, counters)); }
+        } else {
+          children.push(buildTree(key, value));
+        }
       }
     }
 
-    if (children.length > 0) { newNode.children = children; }
-    if (typeof node === 'object' && !Array.isArray(node) && node.path) { newNode.path = node.path; }
+    if (children.length > 0) {
+      newNode.children = children;
+    }
+
     return newNode;
   }
+
 
   let rootName = "root";
   let rootData = rawJson;
