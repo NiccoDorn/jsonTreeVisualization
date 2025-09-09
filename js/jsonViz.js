@@ -40,14 +40,13 @@ document.getElementById("printBtnPNG").addEventListener("click", () => {
 
 // darstellung 
 function initializeVisualization(rawJson) {
-
   function buildTree(name, node) {
     const newNode = { name };
 
     if (node === null) {
       return newNode;
     }
-    
+
     if (typeof node === 'number' || typeof node === 'boolean' || typeof node === 'string') {
       return { name: String(node) };
     }
@@ -87,7 +86,6 @@ function initializeVisualization(rawJson) {
     return newNode;
   }
 
-
   let rootName = "root";
   let rootData = rawJson;
 
@@ -98,13 +96,13 @@ function initializeVisualization(rawJson) {
       rootData = rawJson[rootName];
     }
   }
-  
+
   const data = buildTree(rootName, rootData);
   const root = d3.hierarchy(data, d => d.children);
-  root.x0 = 50;
+  root.x0 = 0;
   root.y0 = 0;
 
-  root.children.forEach(collapse);
+  root.children?.forEach(collapse);
 
   function collapse(d) {
     if (d.children) {
@@ -114,24 +112,30 @@ function initializeVisualization(rawJson) {
     }
   }
 
-  const svg = d3.select("svg"),
-        width = +svg.attr("width"),
-        height = +svg.attr("height"),
-        g = svg.append("g").attr("transform", "translate(150,0)");
+  const svg = d3.select("svg");
+  svg.selectAll("*").remove(); // Clean slate
 
-  const tree = d3.tree().size([height, width]);
+  // Prepare group with offset to the right for visibility of root
+  const g = svg.append("g").attr("transform", "translate(250, 20)");
+
+  // Use fixed spacing per node instead of fixed size
+  const verticalSpacing = 50;
+  const horizontalSpacing = 200;
+  const treeLayout = d3.tree().nodeSize([verticalSpacing, horizontalSpacing]);
+
   const duration = 400;
-
   let i = 0;
 
   update(root);
 
   function update(source) {
-    const treeData = tree(root);
+    const treeData = treeLayout(root);
     const nodes = treeData.descendants();
     const links = treeData.links();
 
-    nodes.forEach(d => d.y = d.depth * 200);
+    // Resize SVG height dynamically based on max x position
+    const maxX = d3.max(nodes, d => d.x) || 0;
+    svg.attr("height", maxX + 100); // + extra padding at bottom
 
     const node = g.selectAll("g.node")
       .data(nodes, d => d.id || (d.id = ++i));
@@ -202,6 +206,7 @@ function initializeVisualization(rawJson) {
       })
       .remove();
 
+    // Store old positions for transitions
     nodes.forEach(d => {
       d.x0 = d.x;
       d.y0 = d.y;
