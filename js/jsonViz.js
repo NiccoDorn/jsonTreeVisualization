@@ -132,14 +132,21 @@ function initializeVisualization(rawJson) {
     const treeData = treeLayout(root);
     const nodes = treeData.descendants();
     const links = treeData.links();
-
-    // Resize SVG height dynamically based on max x position
-    const maxX = d3.max(nodes, d => d.x) || 0;
-    svg.attr("height", maxX + 100); // + extra padding at bottom
-
+  
+    const numNodes = nodes.length;
+    const estimatedHeight = Math.max(900, numNodes * 30); // 30px per node, minimum 900
+  
+    svg.attr("height", estimatedHeight);
+      
+    const verticalSpacing = estimatedHeight / numNodes;
+    const horizontalSpacing = 200;
+  
+    treeLayout.nodeSize([verticalSpacing, horizontalSpacing]);
+    treeLayout(root); // recalculate positions
+  
     const node = g.selectAll("g.node")
       .data(nodes, d => d.id || (d.id = ++i));
-
+  
     const nodeEnter = node.enter().append("g")
       .attr("class", "node")
       .attr("transform", _d => `translate(${source.y0},${source.x0})`)
@@ -153,51 +160,51 @@ function initializeVisualization(rawJson) {
         }
         update(d);
       });
-
+  
     nodeEnter.append("circle")
       .attr("r", 5)
       .style("fill", d => d._children ? "#6baed6" : "#fff");
-
+  
     nodeEnter.append("text")
       .attr("dy", 3)
       .attr("x", d => d.children || d._children ? -10 : 10)
       .style("text-anchor", d => d.children || d._children ? "end" : "start")
       .text(d => d.data.name);
-
+  
     const nodeUpdate = nodeEnter.merge(node);
-
+  
     nodeUpdate.transition()
       .duration(duration)
       .attr("transform", d => `translate(${d.y},${d.x})`);
-
+  
     nodeUpdate.select("circle")
       .attr("r", 5)
       .style("fill", d => d._children ? "#6baed6" : "#fff");
-
+  
     const nodeExit = node.exit().transition()
       .duration(duration)
       .attr("transform", _d => `translate(${source.y},${source.x})`)
       .remove();
-
+  
     nodeExit.select("circle").attr("r", 1e-6);
     nodeExit.select("text").style("fill-opacity", 1e-6);
-
+  
     const link = g.selectAll("path.link")
       .data(links, d => d.target.id);
-
+  
     const linkEnter = link.enter().insert("path", "g")
       .attr("class", "link")
       .attr("d", _d => {
         const o = { x: source.x0, y: source.y0 };
         return diagonal(o, o);
       });
-
+  
     const linkUpdate = linkEnter.merge(link);
-
+  
     linkUpdate.transition()
       .duration(duration)
       .attr("d", d => diagonal(d.source, d.target));
-
+  
     link.exit().transition()
       .duration(duration)
       .attr("d", _d => {
@@ -205,8 +212,7 @@ function initializeVisualization(rawJson) {
         return diagonal(o, o);
       })
       .remove();
-
-    // Store old positions for transitions
+  
     nodes.forEach(d => {
       d.x0 = d.x;
       d.y0 = d.y;
